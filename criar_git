@@ -1,0 +1,23 @@
+### Instalando e configurando o git ###
+$git --version
+$sudo apt update && apt install git
+
+### nome de usuario e senha ###
+$git config --global user.name "alexbk22"
+$git config --global user.email alexbkraemer@gmail.com
+
+### Criar a pasta git 
+$cd --
+$mkdir git
+$cd git
+$git clone https://github.com/alexbk22/projeto_agua_e_acao.git
+$cd projeto_agua_e_acao
+
+
+### enviar os arquivos
+$git add -all
+$git commit -m'descricao'
+$git pull
+
+
+
