@@ -3,10 +3,10 @@ $git --version
 $sudo apt update && apt install git
 
 ### nome de usuario e senha ###
-$git config --global user.name "alexbk22"
-$git config --global user.email alexbkraemer@gmail.com
+$git config --global user.name "username"
+$git config --global user.email seuemail
 
-### Criar a pasta git 
+### Criar a pasta git
 $cd --
 $mkdir git
 $cd git
@@ -18,6 +18,3 @@ $cd projeto_agua_e_acao
 $git add -all
 $git commit -m'descricao'
 $git pull
-
-
-
