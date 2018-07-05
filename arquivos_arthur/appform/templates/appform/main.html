@@ -1,0 +1,29 @@
+{%  extends  "appform/index.html" %} <!-- insere esse bloco no template index.html-->
+{% block content %}
+
+
+<div id="Page_consulta" class="tabcontent"  style=" height:  100% ;">
+
+  <div id="map"  style=" height:  100% ; width: 100%; float:left;" >
+  </div>
+  <div id= "form"  style="  height:70%; width: 30%; float:right; background-color: #034862 ">
+    {% include "appform/formulario.html" %} <!-- insere o template formulario.html aqui-->
+    {% block add_dog %}
+    {% endblock %}
+  </div>
+  <div id="posicao_button1">
+  <button type="button" onclick="Mudarestado('form')">Monitoramento - Cadastro</button>
+  </div>
+</div>
+
+<div id="Page_mapa" class="tabcontent">
+
+
+  {% include "appform/apresenta.html" %}
+  {% block apresenta %}
+  {% endblock %}
+
+
+
+</div>
+{% endblock %}

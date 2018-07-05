@@ -1,0 +1,131 @@
+### Instalar ambiente virtual
+$pip install virtualenvwrapper --->instala o programa
+$mkdir virtualenvs  ---> cria a pasta dos ambientes virtuais
+$sudo find / -name virtualenvwrapper.sh  ---> encontra um arquivo de configuracao
+$sudo gedit ~/.bashrc
+$source "caminho encontrado com o comando acima" --->adicionar ao final do arquivo aberto acima
+$mkvirtualenv env1  ---> cria um ambiente virtual chamdo virtual env1
+
+	####códigos para usar o virtualenvwrapper:
+	---> mkvirtualenv env1  --> cria um ambiente virtual
+	---> rmvirtualenv env1  --> deleta um ambiente virtual
+	---> workon env1        --> ativa um ambiente virtual
+	---> deactivate         --> desativa um ambiente virtua
+
+### Django
+$sudo apt install python-django
+$django-admin --version
+$sudo pip install django
+$django-admin --version
+$django-admin startproject "nome_projeto" ---> gera um novo projeto
+$cd "nome_projeto"
+$python manage.py startapp "nome_app" ---> inicia um app
+
+##### Configurando o django
+--> No arquivo "nome_projeto"/settings.py --> dentro da variável installed_apps --> adicionar o nome do app
+
+--> Apontar a url do projeto para a url do app 
+	--> arquivo "nome_projeto"/urls.py
+	--> adicionar "url(r'',include('app.url'))
+
+--> Criar arquivo app/urls.py 
+	--> adicionar:
+		from django.conf.urls import url
+		from . import views
+		urlpatterns = [
+    			url(r'^$', views.site, name='site'),
+		]
+
+--> Adicionar uma view em app/views.py
+    def site(request):
+	return render(request, 'app1/index.html', {})
+
+--> a pasta app/templates --> e dentro dessa pasta por os arquivos html
+
+--> $sudo python manage.py runserrver
+
+### arquivos estaticos (js, css, plugins, dados) ####
+--> definir local para o seu armazenamento
+	abrir o arquivo 'projeto1/settings.py' e adicionar as constantes com o caminho dos arquivos 
+
+		STATIC_URL = '/static/'
+		STATIC_ROOT = '/home/user/git_trabalho_final/Testes_Consultas_Espaciais/projeto1/app1/static/'
+
+-->  adicionar os arquivos css, js e imagens com uma sintaxe diferente no HTML
+       Ver slides.... (desenvolvimento web...... aula 2)
+
+-->  criar a pasta app1/static
+-->  criar a pasta app1/static/app1
+-->  criar a pasta app1/static/app1/js --> para colocar os arquivos js
+==> criar tbm as pasta css, plugins, dados, imagens
+
+-->  no arquivo app1/url.py adicionar:
+	from django.conf import settings
+	from django.conf.urls.static import static
+	urlpatterns = [
+		url(r'^$', views.site, name='site'),
+	]+static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+$python manage.py collectstatic
+
+### biblioteca psycopg2 ####
+-->  bibliotecas espaciais
+	$sudo apt install binutils libproj-dev gdal-bin
+
+-->  adicionar a biblioteca gis em settings.py
+	Em INSTALLED_APPS = ( 
+	Adicionar 'django.contrib.gis',
+	)
+
+-->  configurar o banco de dados espacial em senttings.py
+	Em DATABASES = {
+			'default': {
+	        	'ENGINE': 'django.contrib.gis.db.backends.postgis',
+ 	        	'NAME': 'teste_consulta',
+  	        	'USER': 'user',
+	        	'PASSWORD': 'user',
+       			'HOST': '127.0.0.1',
+        		'PORT': '5432',
+   	 	}
+	}
+
+--> 	editar o arquivo app1/views
+	adicionar: from __future__ import unicode_literals
+
+-->  criar as tabelas do projeto no banco
+	sudo python manage.py migrate
+
+-->  criar blocos para melhorar o codigo 
+	%%% Ver slides desenvolvim..... aula3
+	IMPORTANTE: todas as tags estao contidas no <body>
+
+-->  layout com o css
+
+-->  Criar model a partir de um banco de dados
+	(dar permissao a pasta primeiro)
+	$sudo python manage.py inspectd > model.py
+
+-->  Copiar do arquivo projeto1/model.py criado acima as classes que serao utilizadas
+	para o arquivo projeto1/app1/models.py
+	e com o cabecalho
+	from __future__ import unicode_literals
+	from django.db import models
+	from django.contrib.gis.db import models
+	# Create your models here.
+	class CapitaisPonto(models.Model):
+    		gid = models.AutoField(primary_key=True)
+    		nm_municip = models.CharField(max_length=60, blank=True, null=True)
+    		cd_geocmu = models.CharField(max_length=7, blank=True, null=True)
+    		geom = models.PointField(srid=4674, blank=True, null=True)
+    		regiao = models.CharField(max_length=15, blank=True, null=True)
+    		objects = models.GeoManager()
+
+
+
+
+
+
+
+
+
+
