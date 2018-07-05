@@ -24,11 +24,11 @@ $python manage.py startapp "nome_app" ---> inicia um app
 ##### Configurando o django
 --> No arquivo "nome_projeto"/settings.py --> dentro da variável installed_apps --> adicionar o nome do app
 
---> Apontar a url do projeto para a url do app 
+--> Apontar a url do projeto para a url do app
 	--> arquivo "nome_projeto"/urls.py
 	--> adicionar "url(r'',include('app.url'))
 
---> Criar arquivo app/urls.py 
+--> Criar arquivo app/urls.py
 	--> adicionar:
 		from django.conf.urls import url
 		from . import views
@@ -46,7 +46,7 @@ $python manage.py startapp "nome_app" ---> inicia um app
 
 ### arquivos estaticos (js, css, plugins, dados) ####
 --> definir local para o seu armazenamento
-	abrir o arquivo 'projeto1/settings.py' e adicionar as constantes com o caminho dos arquivos 
+	abrir o arquivo 'projeto1/settings.py' e adicionar as constantes com o caminho dos arquivos
 
 		STATIC_URL = '/static/'
 		STATIC_ROOT = '/home/user/git_trabalho_final/Testes_Consultas_Espaciais/projeto1/app1/static/'
@@ -73,7 +73,7 @@ $python manage.py collectstatic
 	$sudo apt install binutils libproj-dev gdal-bin
 
 -->  adicionar a biblioteca gis em settings.py
-	Em INSTALLED_APPS = ( 
+	Em INSTALLED_APPS = (
 	Adicionar 'django.contrib.gis',
 	)
 
@@ -95,37 +95,6 @@ $python manage.py collectstatic
 -->  criar as tabelas do projeto no banco
 	sudo python manage.py migrate
 
--->  criar blocos para melhorar o codigo 
+-->  criar blocos para melhorar o codigo
 	%%% Ver slides desenvolvim..... aula3
 	IMPORTANTE: todas as tags estao contidas no <body>
-
--->  layout com o css
-
--->  Criar model a partir de um banco de dados
-	(dar permissao a pasta primeiro)
-	$sudo python manage.py inspectd > model.py
-
--->  Copiar do arquivo projeto1/model.py criado acima as classes que serao utilizadas
-	para o arquivo projeto1/app1/models.py
-	e com o cabecalho
-	from __future__ import unicode_literals
-	from django.db import models
-	from django.contrib.gis.db import models
-	# Create your models here.
-	class CapitaisPonto(models.Model):
-    		gid = models.AutoField(primary_key=True)
-    		nm_municip = models.CharField(max_length=60, blank=True, null=True)
-    		cd_geocmu = models.CharField(max_length=7, blank=True, null=True)
-    		geom = models.PointField(srid=4674, blank=True, null=True)
-    		regiao = models.CharField(max_length=15, blank=True, null=True)
-    		objects = models.GeoManager()
-
-
-
-
-
-
-
-
-
-
