@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'index', views.index),
     url(r'consultajson1', views.retorna_geodjason1),
     url(r'projeto', views.projeto),
+    url(r'consultanome', views.consulta_nome),
     url(r'levantamentos', views.levantamentos),
     url(r'planilha2018', views.planilha2018),
     url(r'planilha2017', views.planilha2017),

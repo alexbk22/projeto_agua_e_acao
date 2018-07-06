@@ -98,17 +98,6 @@ window.onload = function() {
 	//Adicionar objetos ao controle de camadas
 	L.control.layers(basecarto, feicoes).addTo(map);
 
-
-  //GRADES DE COORDENADAS
-  // Specify divisions every 0.5 degrees
-  // L.graticule({ interval: 0.05 }).addTo(map);
-  // L.graticule({
-  //   style: {
-  //       color: '#f00',
-  //       weight: 1,
-  //   }
-  // }).addTo(map);
-
 };
 
  //funcao para ocultar e mostrar formulario
@@ -130,6 +119,12 @@ function Consulta_Ponto(P) {
       )
     }
 
+    if (P=='nome_pt'){
+      var nome = prompt("Digite o nome do ponto: ");
+      $.get('consultanome', {consulta_nome: nome}, function(data){
+        }
+      )
+    }
 
     /*if (P=='consult2'){
       var nome_do_ponto='P2';
@@ -174,3 +169,13 @@ function add_geojson (f){
   }).addTo(map);
    map.fitBounds(layer_geojson.getBounds());
 };
+
+
+// // funcao para popular um dropdown
+// function nome_pts(o){
+//   var $seletor = $("#tema");
+//   $.each(o, function() {
+//       $seletor.append($("<option />").val(this).text(this));
+//     }
+//   );
+// }

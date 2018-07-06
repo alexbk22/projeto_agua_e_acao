@@ -65,6 +65,26 @@ def retorna_geodjason1(request):
     geoj = serialize('geojson', Consulta.objects.all())
     return HttpResponse(geoj, content_type='json')
 
+def consulta_nome(request):
+    print 'chamou a view'
+    cursor = connection.cursor()
+    opt=request.GET['consulta_nome']
+    print opt
+    cursor.execute("SELECT * FROM app1_sane WHERE app1_sane.nome_do_ponto='%s'" % (opt))
+    tabela=
+    return HttpResponse(opt)
+
+# def inicial(request):
+#     t = sane.objects.values('nome_do_ponto').distinct()
+#     temas=[]
+#     for i in t:
+#         try:
+#             print i
+#             temas.append(str(i['nome_do_ponto']))
+#         except Exception as erro:
+#             print erro
+#     return render(request, 'app1/projeto.html', {'temas': temas})
+
 
 
 
