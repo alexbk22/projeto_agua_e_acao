@@ -40,8 +40,13 @@
 		<!-- adiciona a biblioteca jquery e jquery-ui -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<<<<<<< HEAD
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+=======
+		<!-- adiciona o css da consulta -->
+		<!-- <link href="{% static 'app1/css/consulta_json.css' %}" type="text/css" rel="stylesheet" /> -->
+>>>>>>> 85a7d0c4d334ee48a6d5cf847d98f18ae4d21e92
 
 		<!-- estilo do formulario -->
 		<link rel="stylesheet"  href="{%  static 'app1/css/estilos.css' %}">
@@ -108,12 +113,19 @@
 				<div id="posicao_button1">
 					<button type="button" onclick="Mudarestado('form')">Monitoramento - Cadastro</button>
 				</div>
+<<<<<<< HEAD
 				<div>
 					<button type="button" value="Submit" onclick="Consulta_Ponto('todos_pts')"> Mostrar todos os pontos </button>
 					<button type="button" value="Submit" onclick="Consulta_Ponto('nome_pt')"> Selecionar tabela ponto </button>
 					<!-- <input class="ui-button ui-widget ui-corner-all" type="submit" value="Submit" onclick="Consulta_Ponto()" > </input> -->
 					<!-- <h4> Selecionar Ponto</h4> -->
 					<!-- <select name="salutation" id ='tema' style="font-size: 20px;"></select> -->
+=======
+				<div id="pontos_button">
+					<button type="button" value="Submit" onclick="Consulta_Ponto()"> Mostrar todos os pontos </button>
+					<!-- <input class="ui-button ui-widget ui-corner-all" type="submit" value="Submit" onclick="Consulta_Ponto()" > </input> -->
+		    	<!-- <script src="{% static 'app1/js/consulta_json1.js' %}"></script> -->
+>>>>>>> 85a7d0c4d334ee48a6d5cf847d98f18ae4d21e92
 				</div>
 				<!--<script>
 					nome_pts({{temas |safe}})

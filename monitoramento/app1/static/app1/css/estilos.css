@@ -77,24 +77,35 @@ input[type=text] {
 }
 
 .topright:hover {color: red;}
+
 #posicao_button1{
   position: absolute;
-  top:230px;
-  left:1680px;
+  top:31%;
+  left:6.75%;
   transform: translate(-20px, 20px);
   z-index: 10000;
 }
-#form{
-  overflow: scroll;
+
+#pontos_button{
   position: absolute;
-  top:250px;
-  left:1320px;
+  top:25%;
+  left:7.1%;
+  transform: translate(-20px, 20px);
+  z-index: 10000;
+}
+
+#form{
+  overflow: hidden;
+  position: absolute;
+  top:360px;
+  left:5px;
+  height: 700px;
+  width: 100px;
   z-index: 10000;
   opacity: 0.9;
   color:#ffffff;
   font-weight:bolder;
   display: none;
-  height: 700px;
-  width: 1000px;
+
 
   }
