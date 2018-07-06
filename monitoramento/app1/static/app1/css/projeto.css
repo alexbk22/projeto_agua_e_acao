@@ -2759,7 +2759,7 @@
 			padding: 0 0.75em;
 			color: inherit;
 			text-decoration: none;
-			font-size: .8em;
+			font-size: 1em;
 		}
 
 			#header a:hover {
@@ -2928,9 +2928,9 @@
 			#websig {
         top:4px;
 				display: flex;
-				margin: 37 vh 3% 0px 3%;
-				height: 700px;
-				width: 1000px;
+				margin: 0% 3% 3% 10%;
+				height: 70em;
+				width: 100em;
 			}
 
 /* Banner */
