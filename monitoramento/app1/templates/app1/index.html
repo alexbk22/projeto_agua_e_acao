@@ -1,27 +1,112 @@
 <!DOCTYPE HTML> {%load staticfiles%}
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Teste Pesquisa Espacial</title>
+	<head>
+		<title>Saneamento Básico Ambiental</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'app1/css/main.css' %}" />
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+	</head>
+	<body>
 
-    <!-- adiciona a biblioteca jquery e jquery-ui -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="templates/app1/index.html" class="logo"></a>
+					<nav id="nav">
+						<a href="templates/app1/projeto.html">Dados</a>
+						<a href="templates/app1/Levantamentos.html">Resultados Levantamentos Realizados</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
 
-    <link href="{% static 'app1/css/consulta_json.css' %}" type="text/css" rel="stylesheet" />
+		<!-- Banner -->
+			<section id="banner">
+				<h1>Projeto Água e Ação</h1>
+				<p>Revitalização de rios urbanos</p>
+			</section>
 
-    <link type="text/css" rel="stylesheet" href="{% static 'app1/plugins/leaflet/leaflet.css' %}" />
-    <script src="{% static 'app1/plugins/leaflet/leaflet.js' %}" ></script>
+		<!-- One -->
+			<section id="one" class="wrapper">
+				<div class="inner">
+					<div class="flex flex-3">
+						<article>
+							<header>
+								<h3>Objetivo</h3>
+							</header>
+							<p style ="text-align: justify;">O principal objetivo do projeto é a revitalização dos rios urbanos. Mas vale destacar que o projeto busca resgatar a percepção do cidadão sobre os recursos hídricos, formar profissionais com conhecimento em gestão desses recursos. E também aumentar as práticas nas disciplinas e gerar dados e atualizar mapas para o diagnóstico, monitoramento e ação de preservação destes rios.</p>
+						</article>
+						<article>
+							<header>
+								<h3>Como funciona</h3>
+							</header>
+							<p style ="text-align: justify;">Voluntários e bolsistas junto ao orientador são responsáveis pelo: reconhecimento da área, análise preliminar, investigação das causas dos problemas, medidas e acompanhamento. Depois de realizado todas essas etapas é enviado um aviso de extravasamento ao órgão responsável (Sanepar), e é feito a intervenção imediata da Sanepar.</p>
+						</article>
+						<article>
+							<header>
+								<h3>Água e Ação</h3>
+							</header>
+							<img width="300"src="{% static 'app1/images/AA.png' %}" />
+						</article>
+					</div>
+				</div>
+			</section>
 
-  </head>
-  <body>
-    <!-- <p>Realizar uma consulta</p> -->
+		<!-- Two -->
+			<section id="two" class="wrapper style1 special">
+				<div class="inner">
+					<header>
+						<h2>Envolvidos no projeto</h2>
+					</header>
+					<div class="flex flex-4">
+						<div class="box person">
+							<div class="image round">
+								<a href="http://www.dhs.ufpr.br/"> <img src="{% static 'app1/images/DHS1.jpg' %}" class="media-object  img-responsive img-thumbnail" alt="Person 1"> </a>
+							</div>
+							<h3>DHS</h3>
+							<p>Departamento de Hidráulica e Saneamento - UFPR</p>
+						</div>
+						<div class="box person">
+							<div class="image round">
+								<a href="http://site.sanepar.com.br/"> <img src="{% static 'app1/images/SANE.jpg' %}" class="media-object  img-responsive img-thumbnail" alt="Person 2"> </a>
+							</div>
+							<h3>Sanepar</h3>
+							<p>Companhia de Saneamento do Paraná</p>
+						</div>
+						<div class="box person">
+							<div class="image round">
+								<a href="http://www.ufpr.br/portalufpr/"> <img src="{% static 'app1/images/ufpr2.jpg' %}" class="media-object  img-responsive img-thumbnail" alt="Person 3"> </a>
+							</div>
+							<h3>UFPR</h3>
+							<p>Estudantes da UFPR</p>
+						</div>
+						<div class="box person">
+							<div class="image round">
+								<img src="{% static 'app1/images/SOC.jpg' %}" alt="Person 4" />
+							</div>
+							<h3>Sociedade</h3>
+							<p>Inclusive você</p>
+						</div>
+					</div>
+				</div>
+			</section>
 
 
-    <div id="mapa_consulta"></div>
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="flex">
+						<div class="copyright">
+							&copy; Desenvolvido por Arthur Polli, Alex Bruno Kraemer e Luiz Henrique Bossola
+						</div>
+						<ul class="icons">
+							<li><a href="https://www.facebook.com/aguaeacao" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</footer>
 
-    <input class="ui-button ui-widget ui-corner-all" type="submit" value="Submit" onclick="Consulta_tema_data()" > </input>
-    <script src="{% static 'app1/js/consulta_json1.js' %}"></script>
-
-
-  </body>
+	</body>
 </html>

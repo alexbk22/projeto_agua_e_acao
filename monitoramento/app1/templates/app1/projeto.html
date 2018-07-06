@@ -1,0 +1,88 @@
+<!DOCTYPE HTML> {%load staticfiles%}
+<html>
+	<head>
+		<title>Projetos</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!--Biblioteca Leaflet-->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+		<script src="{% static 'app1/js/websig.js' %}"></script>
+		<!-- <link type="text/css" rel="stylesheet" href="{% static 'app1/Plugins/Leaflet/leaflet.css' %}"/>
+		<script src="{% static 'app1/Plugins/Leaflet/leaflet.js' %}"></script> -->
+
+    <!--Arquivos proprios-->
+		<link rel="stylesheet" href="{% static 'app1/css/projeto.css' %}" />
+		<!-- Definindo WebMap -->
+
+
+		<!--Coordenadas no clique -->
+		<link rel="stylesheet" href="{% static 'app1/css/Control.Coordinates.css' %}" />
+		<script src="{% static 'app1/js/Control.Coordinates.js' %}"></script>
+
+		<!--
+		<script src="Plugins/graticule/L.Graticule.js" ></script>
+	  -->
+
+		<!-- Caminho toolbar navegacao -->
+		<link type="text/css" rel="stylesheet" href="{% static 'app1/Plugins/Leaflet.NavBar-master/src/Leaflet.NavBar.css' %}"/>
+		<script src = "{% static 'app1/Plugins/Leaflet.NavBar-master/src/Leaflet.NavBar.js' %}"></script>
+
+		<!-- Adicionando mini mapa -->
+    <link type="text/css" rel="stylesheet" href="{% static 'app1/Plugins/Leaflet-MiniMap-master/src/Control.MiniMap.css' %}"/>
+		<script src="{% static 'app1/Plugins/Leaflet-MiniMap-master/src/Control.MiniMap.js' %}"></script>
+
+		<!-- Adicionando escala -->
+		<link type="text/css" rel="stylesheet" href="{% static 'app1/css/L.Control.BetterScale.css' %}"/>
+		<script src="{% static 'app1/js/L.Control.BetterScale.js' %}"></script>
+
+		<!-- adiciona a biblioteca jquery e jquery-ui -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- adiciona o css da consulta
+		<link href="{% static 'app1/css/consulta_json.css' %}" type="text/css" rel="stylesheet" /> -->
+
+  </head>
+
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+
+		<!-- Ferramentas Leaflet -->
+       <div class="inner">
+					<nav id="nav">
+						<a href="index.html">Home</a>
+						<a href="Levantamentos.html">Resultados Levantamentos Realizados</a>
+					</nav>
+					<a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+				</div>
+			</header>
+
+		<!-- Three -->
+			<section id="three" class="wrapper">
+				<div class="inner">
+					<header class="align-center">
+						<h2><b>Dados Espaciais Mapeados</b></h2>
+					</header>
+				    <div id="websig"></div>
+				</div>
+      </section>
+
+  	</body>
+
+		<!-- Footer -->
+		<footer id="footer">
+		  <div class="inner">
+				<div class="flex">
+					<div class="copyright">
+								&copy; Desenvolvido por Arthur Polli, Alex Bruno Kraemer e Luiz Henrique Bossola
+					</div>
+					  <ul class="icons">
+						  <li><a href="https://www.facebook.com/aguaeacao" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						</ul>
+					</div>
+			</div>
+	  </footer>
+</html>

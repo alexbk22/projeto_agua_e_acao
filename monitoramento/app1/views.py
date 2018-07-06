@@ -31,3 +31,15 @@ def retorna_geodjason(request):
 
 def site(request):
     return render(request, 'app1/index.html', {})
+
+def projeto(request):
+    return render(request, 'app1/projeto.html', {})
+
+def levantamentos(request):
+    return render(request, 'app1/Levantamentos.html', {})
+
+def planilha2018_1(request):
+    return render(request, 'app1/Plan_Coleta_Dados.html', {})
+
+def planilha2017_1(request):
+    return render(request, 'app1/saneamento_v2.html', {})
