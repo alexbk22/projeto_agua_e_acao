@@ -18,6 +18,8 @@ def retorna_geodjason(request):
 
     opt=request.GET['consulta_tema']
 
+    #print opt;
+
     #print PontosColeta.objects.all()
     cursor = connection.cursor()
     cursor.execute("drop table IF EXISTS app1_consulta ;")
@@ -26,7 +28,7 @@ def retorna_geodjason(request):
     cursor.execute("CREATE table app1_consulta AS SELECT * FROM pontos_coleta WHERE pontos_coleta.pt_id='%s'" % (opt))
 
     geoj = serialize('geojson', Consulta.objects.all())
-    print geoj
+    #print geoj
     # geoj = serialize('geojson',geoj)
 
     return HttpResponse(geoj, content_type='json')
