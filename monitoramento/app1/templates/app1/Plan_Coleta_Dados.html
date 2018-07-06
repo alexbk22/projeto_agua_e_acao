@@ -1,3 +1,4 @@
+<!DOCTYPE HTML> {%load staticfiles%}
 <html xmlns:v="urn:schemas-microsoft-com:vml"
 xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns:x="urn:schemas-microsoft-com:office:excel"
@@ -8,10 +9,10 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
 <meta name=ProgId content=Excel.Sheet>
 <meta name=Generator content="Microsoft Excel 15">
-<link rel=File-List href="Plan_Coleta_Dados_files/filelist.xml">
+<link rel=File-List href="{% static 'app1/dados/Plan_Coleta_Dados_files/filelist.xml' %}">
 <![if !supportTabStrip]>
-<link id="shLink" href="Plan_Coleta_Dados_files/sheet001.html">
-<link id="shLink" href="Plan_Coleta_Dados_files/sheet002.html">
+<link id="shLink" href="{% static 'app1/dados/Plan_Coleta_Dados_files/sheet001.html' %}">
+<link id="shLink" href="{% static 'app1/dados/Plan_Coleta_Dados_files/sheet002.html' %}">
 
 <link id="shLink">
 
@@ -308,8 +309,8 @@ function fnSetActiveSheet(iSh)
    </x:ExcelWorksheet>
   </x:ExcelWorksheets>
   <x:Stylesheet HRef="Plan_Coleta_Dados_files/stylesheet.css"/>
-  <x:WindowHeight>7752</x:WindowHeight>
-  <x:WindowWidth>15360</x:WindowWidth>
+  <x:WindowHeight>9192</x:WindowHeight>
+  <x:WindowWidth>23040</x:WindowWidth>
   <x:WindowTopX>0</x:WindowTopX>
   <x:WindowTopY>0</x:WindowTopY>
   <x:ProtectStructure>False</x:ProtectStructure>
@@ -319,8 +320,8 @@ function fnSetActiveSheet(iSh)
 </head>
 
 <frameset rows="*,39" border=0 width=0 frameborder=no framespacing=0>
- <frame src="Plan_Coleta_Dados_files/sheet001.html" name="frSheet">
- <frame src="Plan_Coleta_Dados_files/tabstrip.html" name="frTabs" marginwidth=0 marginheight=0>
+ <frame src="{% static 'app1/dados/Plan_Coleta_Dados_files/sheet001.html' %}" name="frSheet">
+ <frame src="{% static 'app1/dados/Plan_Coleta_Dados_files/tabstrip.html' %}" name="frTabs" marginwidth=0 marginheight=0>
  <noframes>
   <body>
    <p>This page uses frames, but your browser doesn't support them.</p>
