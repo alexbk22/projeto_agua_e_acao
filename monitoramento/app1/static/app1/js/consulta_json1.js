@@ -56,7 +56,7 @@
 // 	}
 // }
 //1 - Mapa centrado em Curitiba
-var mapa = L.map("mapa_teste_consulta", {
+var mapa = L.map("mapa_consulta", {
 	center: [-25.45, -49.25],
 	zoom: 5,
 	zoomSnap: 0.5,
@@ -71,7 +71,7 @@ var osmColorido = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.pn
 // funcao ajax para enviar parametros pro python e retornar geojson
 function Consulta_tema_data() {
 
-		var regiao='sul';
+		var regiao='P8';
 
 		//$.get('consulta', {consulta_tema: opcao, d_i:data_inicial, d_f:data_final }, function(data){
 		$.get('consulta', {consulta_tema: regiao}, function(data){
