@@ -109,59 +109,8 @@ window.onload = function() {
   //   }
   // }).addTo(map);
 
-  // funcao ajax para enviar parametros pro python e retornar geojson
-  function Consulta_Ponto() {
+};
 
-  		var regiao='P8';
-
-  		//$.get('consulta', {consulta_tema: opcao, d_i:data_inicial, d_f:data_final }, function(data){
-  		$.get('consultajson', {consulta_tema: regiao}, function(data){
-  		 add_geojson(data);
-  	 }
-  	)
-  };
-
-  // funcao ajax para enviar parametros pro python e retornar geojson
-  function add_geojson (f){
-
-  		var geojsonMarkerOptions = {
-  		radius: 8,
-  		fillColor: "#ff7800",
-  		color: "#000",
-  		weight: 1,
-  		opacity: 1,
-  		fillOpacity: 0.8
-  }
-
-  		var geo = f;
-  		var layer_geojson = L.geoJson();
-  		layer_geojson.clearLayers();
-
-  		layer_geojson = L.geoJSON(geo, {
-
-  		style: function (feature) {
-  			return feature.properties && feature.properties.style;
-  		},
-  		onEachFeature: function (feicao, camada){
-  				camada.bindTooltip(feicao.properties.pt_id)
-  				return L.circleMarker(camada, geojsonMarkerOptions)},
-
-  		pointToLayer: function (feature, latlng) {
-
-  			return L.circleMarker(latlng, {
-  			radius: 4,
-  				fillColor: "#ff7800",
-  				color: "#000",
-  				weight: 1,
-  				opacity: 1,
-  				fillOpacity: 0.8
-  			});
-  		}
-  	}).addTo(map);
-  	 mapa.fitBounds(layer_geojson.getBounds());
-  };
-
- }
  //funcao para ocultar e mostrar formulario
  function Mudarestado(el){
   var display = document.getElementById(el).style.display;
@@ -169,4 +118,59 @@ window.onload = function() {
     document.getElementById(el).style.display = 'block';
   else
     document.getElementById(el).style.display = 'none';
+};
+
+
+  //###### alex mexendo
+
+// funcao ajax para enviar parametros pro python e retornar geojson
+function Consulta_Ponto() {
+
+    var nome_do_ponto='P2';
+
+    //$.get('consulta', {consulta_tema: opcao, d_i:data_inicial, d_f:data_final }, function(data){
+    $.get('consultajson', {consulta_tema: nome_do_ponto}, function(data){
+     add_geojson(data);
+   }
+  )
+};
+
+// funcao ajax para enviar parametros pro python e retornar geojson
+function add_geojson (f){
+
+    var geojsonMarkerOptions = {
+    radius: 8,
+    fillColor: "#ff7800",
+    color: "#000",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
 }
+
+    var geo = f;
+    var layer_geojson = L.geoJson();
+    layer_geojson.clearLayers();
+
+    layer_geojson = L.geoJSON(geo, {
+
+    style: function (feature) {
+      return feature.properties && feature.properties.style;
+    },
+    onEachFeature: function (feicao, camada){
+        camada.bindTooltip(feicao.properties.pt_id)
+        return L.circleMarker(camada, geojsonMarkerOptions)},
+
+    pointToLayer: function (feature, latlng) {
+
+      return L.circleMarker(latlng, {
+      radius: 4,
+        fillColor: "#ff7800",
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+      });
+    }
+  }).addTo(map);
+   map.fitBounds(layer_geojson.getBounds());
+};
