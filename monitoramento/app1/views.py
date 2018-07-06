@@ -9,7 +9,7 @@ from app1.models import PontosColeta, Consulta
 from django.core.serializers import serialize
 from django.db import connection, transaction
 from .forms import saneform
-from app1.models import sane
+from app1.models import sane, ConsultaSane
 from django.contrib.gis.geos import GEOSGeometry
 import json
 
@@ -62,6 +62,7 @@ def retorna_geodjason1(request):
     cursor = connection.cursor()
     cursor.execute("drop table IF EXISTS app1_consulta ;")
     cursor.execute("CREATE table app1_consulta AS SELECT * FROM pontos_coleta")
+    print Consulta.objects.all()
     geoj = serialize('geojson', Consulta.objects.all())
     return HttpResponse(geoj, content_type='json')
 
@@ -70,9 +71,13 @@ def consulta_nome(request):
     cursor = connection.cursor()
     opt=request.GET['consulta_nome']
     print opt
-    cursor.execute("SELECT * FROM app1_sane WHERE app1_sane.nome_do_ponto='%s'" % (opt))
-    tabela=
-    return HttpResponse(opt)
+    cursor.execute("drop table IF EXISTS app1_consultasane;")
+    cursor.execute("CREATE table app1_consultasane AS SELECT app1_sane.* FROM app1_sane WHERE app1_sane.nome_do_ponto='%s'" % (opt))
+    print 'esta aqui'
+    print ConsultaSane.objects.all()
+    print opt
+    callback(JSON.stringify(consulta_teste))
+    return HttpResponse(opt, content_type='json')
 
 # def inicial(request):
 #     t = sane.objects.values('nome_do_ponto').distinct()

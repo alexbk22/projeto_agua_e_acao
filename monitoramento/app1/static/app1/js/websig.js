@@ -121,9 +121,9 @@ function Consulta_Ponto(P) {
 
     if (P=='nome_pt'){
       var nome = prompt("Digite o nome do ponto: ");
-      $.get('consultanome', {consulta_nome: nome}, function(data){
-        }
-      )
+      var consulta_teste = $.getJSON('consultanome', {consulta_nome: nome}, function(data){
+      }
+    )
     }
 
     /*if (P=='consult2'){

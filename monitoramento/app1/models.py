@@ -111,3 +111,16 @@ class PontosColeta(models.Model):
     class Meta:
         managed = False
         db_table = 'pontos_coleta'
+
+class ConsultaSane(models.Model):
+    nome_do_ponto = models.CharField(max_length=50)
+    data = models.CharField(max_length=50)
+    periodo = models.CharField(max_length=50)
+    observador = models.CharField(max_length=50)
+    integrantes = models.CharField(max_length=500)
+    od = models.CharField(max_length=50)
+    temperatura = models.CharField(max_length=50)
+    odor = models.CharField(max_length=50)
+    cor = models.CharField(max_length=50)
+    observacoes = models.CharField(max_length=50)
+    foto = models.CharField(max_length=100)
