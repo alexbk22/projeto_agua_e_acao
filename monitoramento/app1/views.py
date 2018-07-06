@@ -36,10 +36,10 @@ def projeto(request):
     return render(request, 'app1/projeto.html', {})
 
 def levantamentos(request):
-    return render(request, 'app1/Levantamentos.html', {})
+    return render(request, 'app1/levantamentos.html', {})
 
-def planilha2018_1(request):
+def planilha2018(request):
     return render(request, 'app1/Plan_Coleta_Dados.html', {})
 
-def planilha2017_1(request):
+def planilha2017(request):
     return render(request, 'app1/saneamento_v2.html', {})
