@@ -84,16 +84,16 @@ input[type=text] {
 .topright:hover {color: red;}
 #posicao_button1{
   position: absolute;
-  top:10%;
-  left:80%;
-  transform: translate(-10%, 10%);
+  top:200px;
+  left:1200px;
+  transform: translate(-20px, 20px);
   z-index: 10000;
 }
 #form{
   overflow: scroll;
   position: absolute;
-  top:8%;
-  left:65%;
+  top:250px;
+  left:1175px;
   z-index: 10000;
   opacity: 0.9;
   color:#ffffff;

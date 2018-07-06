@@ -40,8 +40,9 @@
 		<!-- adiciona a biblioteca jquery e jquery-ui -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-		<!-- adiciona o css da consulta
-		<link href="{% static 'app1/css/consulta_json.css' %}" type="text/css" rel="stylesheet" /> -->
+		<!-- adiciona o css da consulta -->
+		<!-- <link href="{% static 'app1/css/consulta_json.css' %}" type="text/css" rel="stylesheet" /> -->
+
 		<!-- estilo do formulario -->
 		<link rel="stylesheet"  href="{%  static 'app1/css/estilos.css' %}">
 
@@ -79,10 +80,13 @@
 					{% endblock %}
 				</div>
 				<div id="posicao_button1">
-				<button type="button" onclick="Mudarestado('form')">Monitoramento - Cadastro</button>
+					<button type="button" onclick="Mudarestado('form')">Monitoramento - Cadastro</button>
 				</div>
-
-			</div>
+				<div>
+					<script src="{% static 'app1/js/websig.js' %}"></script>
+					<input class="ui-button ui-widget ui-corner-all" type="submit" value="Submit" onclick="Consulta_Ponto()" > </input>
+		    	<!-- <script src="{% static 'app1/js/consulta_json1.js' %}"></script> -->
+				</div>
       </section>
 
   	</body>

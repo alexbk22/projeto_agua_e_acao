@@ -69,7 +69,7 @@ var mapa = L.map("mapa_consulta", {
 var osmColorido = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(mapa);
 
 // funcao ajax para enviar parametros pro python e retornar geojson
-function Consulta_tema_data() {
+function Consulta_Ponto() {
 
 		var regiao='P8';
 
