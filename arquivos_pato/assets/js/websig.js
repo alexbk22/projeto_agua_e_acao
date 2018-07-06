@@ -76,7 +76,7 @@ window.onload = function() {
   });
 
   var divisadebairros = L.tileLayer.wms('http://www.idea.ufpr.br/geoserver/geonode/wms', {
-  layers:'geonode:lim_bairro_a',
+  layers:'geonode:bairro_cwb_sirgas',
   transparent: 'true',
   format: 'image/png'
   });
@@ -89,7 +89,6 @@ window.onload = function() {
   };
 
 	var feicoes = {
-    //"Pontos de Coleta": pontos_coleta,
     "Lotes": lotes,
 		"Divisas de Bairro": divisadebairros,
     "Ocupacoes Irregulares": OcupacoesIrreg,
