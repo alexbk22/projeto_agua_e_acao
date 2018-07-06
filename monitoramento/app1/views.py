@@ -29,7 +29,7 @@ def retorna_geodjason(request):
 
     return HttpResponse(geoj, content_type='json')
 
-def site(request):
+def index(request):
     return render(request, 'app1/index.html', {})
 
 def projeto(request):
