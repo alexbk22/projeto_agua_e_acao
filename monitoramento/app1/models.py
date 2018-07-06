@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
@@ -96,4 +95,9 @@ class sane(models.Model):
         observacoes = models.CharField(max_length=50)
         foto = models.ImageField()
 
-#models banco
+#models banco alex
+class Consulta(models.Model):
+    gid = models.AutoField(primary_key=True)
+    pt_id = models.CharField(max_length=80, blank=True, null=True)
+    geom = models.PointField(srid=4674, blank=True, null=True)
+    objects = models.GeoManager()
