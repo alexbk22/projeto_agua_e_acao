@@ -120,24 +120,29 @@ window.onload = function() {
     document.getElementById(el).style.display = 'none';
 };
 
-
-  //###### alex mexendo
-
+//###### alex mexendo
 // funcao ajax para enviar parametros pro python e retornar geojson
-function Consulta_Ponto() {
+function Consulta_Ponto(P) {
+    if (P=='todos_pts'){
+      $.get('consultajson1', function(data){
+        add_geojson(data);
+        }
+      )
+    }
 
-    var nome_do_ponto='P2';
 
-    //$.get('consulta', {consulta_tema: opcao, d_i:data_inicial, d_f:data_final }, function(data){
-    $.get('consultajson', {consulta_tema: nome_do_ponto}, function(data){
-     add_geojson(data);
-   }
-  )
+    /*if (P=='consult2'){
+      var nome_do_ponto='P2';
+      //$.get('consulta', {consulta_tema: opcao, d_i:data_inicial, d_f:data_final }, function(data){
+      $.get('consultajson2', {consulta_tema: nome_do_ponto}, function(data){
+        add_geojson(data);
+        }
+      )
+    }*/
+
 };
-
 // funcao ajax para enviar parametros pro python e retornar geojson
 function add_geojson (f){
-
     var geojsonMarkerOptions = {
     radius: 8,
     fillColor: "#ff7800",
@@ -146,22 +151,17 @@ function add_geojson (f){
     opacity: 1,
     fillOpacity: 0.8
 }
-
     var geo = f;
     var layer_geojson = L.geoJson();
     layer_geojson.clearLayers();
-
     layer_geojson = L.geoJSON(geo, {
-
     style: function (feature) {
       return feature.properties && feature.properties.style;
     },
     onEachFeature: function (feicao, camada){
         camada.bindTooltip(feicao.properties.pt_id)
         return L.circleMarker(camada, geojsonMarkerOptions)},
-
     pointToLayer: function (feature, latlng) {
-
       return L.circleMarker(latlng, {
       radius: 4,
         fillColor: "#ff7800",

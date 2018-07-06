@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'index', views.index),
-    url(r'consultajson', views.retorna_geodjason),
+    url(r'consultajson1', views.retorna_geodjason1),
     url(r'projeto', views.projeto),
     url(r'levantamentos', views.levantamentos),
     url(r'planilha2018', views.planilha2018),

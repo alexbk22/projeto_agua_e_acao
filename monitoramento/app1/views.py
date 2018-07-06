@@ -14,25 +14,6 @@ from django.contrib.gis.geos import GEOSGeometry
 import json
 
 # Create your views here.
-def retorna_geodjason(request):
-
-    opt=request.GET['consulta_tema']
-
-    #print opt;
-
-    #print PontosColeta.objects.all()
-    cursor = connection.cursor()
-    cursor.execute("drop table IF EXISTS app1_consulta ;")
-    #cursor.execute("create table consulta as select cpf_cnpj as id,cpf_cnpj , geom, nome_empresa, sum(valor) from despesas where valor is not NULL and ds_funcao = '%s' and data >= '%s' and data >= '%s' group by cpf_cnpj, nome_empresa,geom" % (opt,di,df))
-    #cursor.execute("CREATE table SELECT capitais_ponto.* FROM capitais_ponto WHERE capitais_ponto.regiao='%s'" % (opt))
-    cursor.execute("CREATE table app1_consulta AS SELECT * FROM pontos_coleta WHERE pontos_coleta.pt_id='%s'" % (opt))
-
-    geoj = serialize('geojson', Consulta.objects.all())
-    #print geoj
-    # geoj = serialize('geojson',geoj)
-
-    return HttpResponse(geoj, content_type='json')
-
 def index(request):
     return render(request, 'app1/index.html', {})
 
@@ -72,3 +53,32 @@ def addponto(request):
             print form.errors ######################## se ocorrer algum erro é printado
 
     return render(request, 'app1/projeto.html', {'form': form}) ######################## apos adicionado o objeto é retonado a mesma pagina com o formulario
+
+
+#### Consultas json
+#Consulta 1 - mostrar todos os pontos
+def retorna_geodjason1(request):
+    cursor = connection.cursor()
+    cursor.execute("drop table IF EXISTS app1_consulta ;")
+    cursor.execute("CREATE table app1_consulta AS SELECT * FROM pontos_coleta")
+    geoj = serialize('geojson', Consulta.objects.all())
+    return HttpResponse(geoj, content_type='json')
+
+
+
+
+
+##### backup consulta_tema.
+# def retorna_geodjason(request):
+#     opt=request.GET['consulta_tema']
+#     #print opt;
+#     #print PontosColeta.objects.all()
+#     cursor = connection.cursor()
+#     cursor.execute("drop table IF EXISTS app1_consulta ;")
+#     #cursor.execute("create table consulta as select cpf_cnpj as id,cpf_cnpj , geom, nome_empresa, sum(valor) from despesas where valor is not NULL and ds_funcao = '%s' and data >= '%s' and data >= '%s' group by cpf_cnpj, nome_empresa,geom" % (opt,di,df))
+#     #cursor.execute("CREATE table SELECT capitais_ponto.* FROM capitais_ponto WHERE capitais_ponto.regiao='%s'" % (opt))
+#     cursor.execute("CREATE table app1_consulta AS SELECT * FROM pontos_coleta WHERE pontos_coleta.pt_id='%s'" % (opt))
+#     geoj = serialize('geojson', Consulta.objects.all())
+#     #print geoj
+#     # geoj = serialize('geojson',geoj)
+#     return HttpResponse(geoj, content_type='json')
