@@ -1,0 +1,31 @@
+
+{% block apresenta %}
+
+{% load staticfiles %}
+<div id="form2">
+
+
+<form action="/apresenta" method="POST" enctype="multipart/form-data" id= "form2">
+  {% csrf_token %}
+<table>
+  {% for n in img %} <!-- img é passado pelo servidor com os dados de todos os cachorros e percorrido pelo for gerando o código abaixo para cada cachorro cadastrado-->
+  <th>
+    <tr>   <img src="{{ n.foto.url }}"  height="100px"  /> </td> <!-- foto.url indica o caminho da foto do cachorro para ser carregada neste template-->
+    <tr>      <p>{{ form.nome_do_ponto.label_tag }}  {{ form.nome_do_ponto }}</p> </td>
+    <tr>      <p>{{ form.data.label_tag }}  {{ form.data }}</p> </td>
+    <tr>      <p>{{ form.periodo.label_tag }}  {{ form.periodo }}</p> </td>
+    <tr>      <p>{{ form.observador.label_tag }}  {{ form.observador }}</p> </td>
+    <tr>      <p>{{ form.integrantes.label_tag }}  {{ form.integrantes }}</p> </td>
+    <tr>      <p>{{ form.od.label_tag }}  {{ form.od }}</p> </td>
+    <tr>      <p>{{ form.temperatura.label_tag }}  {{ form.temperatura }}</p> </td>
+    <tr>      <p>{{ form.odor.label_tag }}  {{ form.odor }}</p> </td>
+    <tr>      <p>{{ form.cor.label_tag }}  {{ form.cor }}</p> </td>
+    <tr>      <p>{{ form.observacoes.label_tag }}  {{ form.observacoes }}</p> </td>
+<th>
+{% endfor %}
+</table>
+  <p><input type="submit" value="Mostrar" /></p>
+</form>
+</div>
+
+{% endblock %}

@@ -42,6 +42,11 @@
 
 		<!-- adiciona o css da consulta
 		<link href="{% static 'app1/css/consulta_json.css' %}" type="text/css" rel="stylesheet" /> -->
+		<!-- estilo do formulario -->
+		<link rel="stylesheet"  href="{%  static 'app1/css/estilos.css' %}">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.js"></script>
+		<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.css">
 
   </head>
 
@@ -68,6 +73,16 @@
 					</header>
 				    <div id="websig"></div>
 				</div>
+				<div id= "form"  style="  height:70%; width: 30%; float:right; background-color: #034862 ">
+					{% include "app1/formulario.html" %} <!-- insere o template formulario.html aqui-->
+					{% block addponto %}
+					{% endblock %}
+				</div>
+				<div id="posicao_button1">
+				<button type="button" onclick="Mudarestado('form')">Monitoramento - Cadastro</button>
+				</div>
+				
+			</div>
       </section>
 
   	</body>

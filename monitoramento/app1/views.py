@@ -3,12 +3,14 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.gis.geos import Point
 from app1.models import PontosColeta, Consulta
 from django.core.serializers import serialize
 from django.db import connection, transaction
-
+from .forms import saneform
+from app1.models import sane
+from django.contrib.gis.geos import GEOSGeometry
 import json
 
 # Create your views here.
@@ -43,3 +45,28 @@ def planilha2018(request):
 
 def planilha2017(request):
     return render(request, 'app1/saneamento_v2.html', {})
+
+
+
+def apresenta(request):
+    img = sane.objects.all() #########################  requisita todos as linhas da tabela dogs do banco de dados
+    return render(request, 'app1/apresenta.html',{'img': img} ) ######################### retorna a pagina apresenta.html e passa como parametros todas as linhas da tabela dogs do banco de dados
+
+
+def site(request):
+
+    form = saneform ######################### cria uma nova instancia do formulario dogform
+    return render(request, 'app1/projeto.html',{'form': form} ) ######################### retorna a pagina main.html e passa como parametro o formulario dogform
+
+def addponto(request):
+
+    if request.method == 'POST': ######################## verifica se a requisição utiliza o método http POST
+        form = saneform(request.POST, request.FILES) ######################## cria uma instancia do formulário dogform com as informações passadas pelo no request que veio das paginas html,
+
+        if form.is_valid():  ######################## verifico se o formulario instaciado é valido
+            form.save() ######################## salvo o formulario no banco
+
+        else:
+            print form.errors ######################## se ocorrer algum erro é printado
+
+    return render(request, 'app1/projeto.html', {'form': form}) ######################## apos adicionado o objeto é retonado a mesma pagina com o formulario

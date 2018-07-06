@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 Django settings for monitoramento project.
 
@@ -125,4 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/alex/git/projeto_agua_e_acao/monitoramento/app1/static'
+STATIC_ROOT = 'static'
+
+MEDIA_URL = '/media/'                                     ########################## caminho dentro da pasta do aplicativo para as imagens upadas no site
+MEDIA_ROOT = 'media'                                      ########################## nome do diretorio dentro da pasta do aplicativo onde as imagens upadas serão armazenadas
