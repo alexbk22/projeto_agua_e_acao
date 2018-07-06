@@ -32,10 +32,11 @@ def retorna_geodjason(request):
     return HttpResponse(geoj, content_type='json')
 
 def index(request):
-    return render(request, 'app1/index.html', {})
+    return render(request, 'app1/index.html',{} )
 
 def projeto(request):
-    return render(request, 'app1/projeto.html', {})
+    form = saneform
+    return render(request, 'app1/projeto.html', {'form': form})
 
 def levantamentos(request):
     return render(request, 'app1/levantamentos.html', {})
