@@ -1,8 +1,3 @@
-body,html {
-  height: 100%;
-  margin: 0;
-}
-
 /* configuração do formulario */
 
 img.avatar {
@@ -12,7 +7,7 @@ img.avatar {
     display: block;
     margin-left: auto;
     margin-right: auto
-    padding: 12px 20px;
+    padding: 1px 1px;
     margin: 8px ;
 }
 
@@ -69,7 +64,7 @@ input[type=text] {
 /* Style the tab content */
 .tabcontent {
     display: none;
-    padding: 6px 16px;
+    padding: 6px 10px;
     border: 1px solid #ccc;
     border-top: none;
 }
@@ -84,8 +79,8 @@ input[type=text] {
 .topright:hover {color: red;}
 #posicao_button1{
   position: absolute;
-  top:200px;
-  left:1200px;
+  top:230px;
+  left:1680px;
   transform: translate(-20px, 20px);
   z-index: 10000;
 }
@@ -93,11 +88,13 @@ input[type=text] {
   overflow: scroll;
   position: absolute;
   top:250px;
-  left:1175px;
+  left:1320px;
   z-index: 10000;
   opacity: 0.9;
   color:#ffffff;
-  font-weight:bold;
+  font-weight:bolder;
   display: none;
+  height: 700px;
+  width: 1000px;
 
   }
