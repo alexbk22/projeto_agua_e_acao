@@ -26,7 +26,7 @@ def retorna_geodjason(request):
     cursor.execute("drop table IF EXISTS app1_consulta ;")
     #cursor.execute("create table consulta as select cpf_cnpj as id,cpf_cnpj , geom, nome_empresa, sum(valor) from despesas where valor is not NULL and ds_funcao = '%s' and data >= '%s' and data >= '%s' group by cpf_cnpj, nome_empresa,geom" % (opt,di,df))
     #cursor.execute("CREATE table SELECT capitais_ponto.* FROM capitais_ponto WHERE capitais_ponto.regiao='%s'" % (opt))
-    cursor.execute("CREATE table app1_consulta AS SELECT * FROM capitais_ponto WHERE capitais_ponto.regiao='norte'")
+    cursor.execute("CREATE table app1_consulta AS SELECT * FROM capitais_ponto WHERE capitais_ponto.pt_id='10'")
 
     geoj = serialize('geojson', App1Consulta.objects.all())
     print geoj

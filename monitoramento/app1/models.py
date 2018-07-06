@@ -101,3 +101,13 @@ class Consulta(models.Model):
     pt_id = models.CharField(max_length=80, blank=True, null=True)
     geom = models.PointField(srid=4674, blank=True, null=True)
     objects = models.GeoManager()
+
+class PontosColeta(models.Model):
+    gid = models.AutoField(primary_key=True)
+    pt_id = models.CharField(max_length=80, blank=True, null=True)
+    geom = models.PointField(srid=4674, blank=True, null=True)
+    objects = models.GeoManager()
+
+    class Meta:
+        managed = False
+        db_table = 'pontos_coleta'
