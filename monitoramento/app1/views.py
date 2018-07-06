@@ -15,7 +15,7 @@ import json
 def retorna_geodjason(request):
 
     opt=request.GET['consulta_tema']
-    print opt;
+
     #print PontosColeta.objects.all()
     cursor = connection.cursor()
     cursor.execute("drop table IF EXISTS app1_consulta ;")

@@ -92,7 +92,7 @@ window.onload = function() {
     "Lotes": lotes,
 		"Divisas de Bairro": divisadebairros,
     "Ocupacoes Irregulares": OcupacoesIrreg,
-    "Hidrografia Linha": hidrografiaL,
+    "Hidrografia 1/25000": hidrografiaL,
 	};
 
 	//Adicionar objetos ao controle de camadas
