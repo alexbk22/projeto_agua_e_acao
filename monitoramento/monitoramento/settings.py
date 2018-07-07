@@ -26,7 +26,7 @@ SECRET_KEY = '7=98-fz=ylb%h%c6@(y$wr!_htaa)oldm(_@y5rj$6iyxs@qf&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = []Atualizacao do estilo do formulario
 
 
 # Application definition
@@ -80,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE':'django.contrib.gis.db.backends.postgis',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME':'sane',
+        'NAME':'monitoramento',
         'USER':'user',
         'PASSWORD':'user',
         'HOST':'127.0.0.1',
