@@ -16,18 +16,16 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '7=98-fz=ylb%h%c6@(y$wr!_htaa)oldm(_@y5rj$6iyxs@qf&'
+SECRET_KEY = '&7cijw!*fic4e++ekf+!&5vhcmq!@*c=!jj)=n0lg#3h&zrter'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []Atualizacao do estilo do formulario
-
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -81,8 +79,8 @@ DATABASES = {
         'ENGINE':'django.contrib.gis.db.backends.postgis',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'NAME':'monitoramento',
-        'USER':'user',
-        'PASSWORD':'user',
+        'USER':'postgres',
+        'PASSWORD':'postgres',
         'HOST':'127.0.0.1',
         'PORT':'5432',
     }
